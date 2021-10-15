@@ -1,26 +1,33 @@
 import React from 'react';
 import styled from 'styled-components';
-import PrimaryButton from './PrimaryButton';
 import logo from '../../img/logo.svg';
+import { useHistory, Link } from 'react-router-dom';
+
 
 const Navigation = () => {
+    const history = useHistory();
+
+    const goToSignUp = () => {
+        history.push('/signin');
+    }
+    
     return (
         <NavigationStyle>
             <div className="logo">
                 <img src={logo} alt="" />
             </div>
             <ul>
-                <l1>
+                <li>
                     <a href="">Home</a>
-                </l1>
-                <l1>
+                </li>
+                <li>
                     <a href="">Features</a>
-                </l1>
-                <l1>
+                </li>
+                <li>
                     <a href="">Pricing</a>
-                </l1>
+                </li>
             </ul>
-            <PrimaryButton name={'Sign Up'} />
+            <Link to="/signup">Sign Up</Link>
         </NavigationStyle>
     );
 }
