@@ -16,6 +16,7 @@ const ProgrammerSignUp = () => {
         e.preventDefault();
         //console.log(formData);
         dispatch(signup(formData, history));
+        history.push('/addProject');
     }
 
     const handleChange = (e) => {
