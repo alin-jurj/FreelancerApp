@@ -7,9 +7,6 @@ import { useHistory, Link } from 'react-router-dom';
 const Navigation = () => {
     const history = useHistory();
 
-    const goToSignUp = () => {
-        history.push('/signin');
-    }
     
     return (
         <NavigationStyle>
@@ -27,7 +24,7 @@ const Navigation = () => {
                     <a href="">Pricing</a>
                 </li>
             </ul>
-            <Link to="/signup">Sign Up</Link>
+            <Link to="/signin">Sign In</Link>
         </NavigationStyle>
     );
 }

@@ -4,6 +4,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 
 import userRouter from './routes/user.js';
+import portofolioRouter from './routes/portofolio.js';
 
 dotenv.config();
 
@@ -15,11 +16,9 @@ app.use(express.urlencoded({limit: "30mb", extended: true}));
 app.use(cors());
 
 app.use('/user', userRouter);
+app.use('/portofolio', portofolioRouter);
 
 const PORT = process.env.PORT|| 5000;
 mongoose.connect(process.env.MONGODB_CONNECTION, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => app.listen(PORT, () => console.log(`Server Running on Port: http://localhost:${PORT}`)))
     .catch((error) => console.log(`${error} did not connect`));
-
-
-
