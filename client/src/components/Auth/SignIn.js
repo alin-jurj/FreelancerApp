@@ -6,6 +6,7 @@ import { useHistory } from 'react-router-dom';
 import  useStyle from './styles';
 import { signin } from '../../actions/auth';
 import styled from 'styled-components';
+import bg from '../../img/bg.svg';
 
 const initialState = {email: '', password: ''};
 
@@ -21,9 +22,7 @@ const SignIn = () => {
 
     const handleSignIn = (e) => {
         e.preventDefault();
-        //console.log(formData);
         dispatch(signin(formData, history));
-        history.push('/MainPage');
     }
 
     const goToSignUp = () => {
@@ -59,7 +58,7 @@ const SignIn = () => {
 }
 
 const StyledBody = styled.div`
-  background: url('https://svgshare.com/i/bCk.svg');
+  background: url(${bg});
   background-size: cover;
   position: fixed;
   top: 0;

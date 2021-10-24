@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
-import { Grid, TextField, Button } from '@material-ui/core';
+import { Grid, TextField, Button, Typography } from '@material-ui/core';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { signup } from '../../actions/auth';
+import  useStyle from './styles';
+import FileBase from 'react-file-base64';
 
-const initialState = { name: '', phone: '',email:'', password: '', confirmPassword: '', type: 'freelancer' };
+const initialState = { name: '', phone: '',email:'', password: '', confirmPassword: '', photo: '', type: 'freelancer' };
 
 const ProgrammerSignUp = () => {
+    const classes = useStyle();
     const dispatch = useDispatch();
     const history = useHistory();
     const [formData, setFormData] = useState(initialState);
@@ -25,6 +28,10 @@ const ProgrammerSignUp = () => {
 
     return (
         <Grid container spacing={2}>
+            <div className={classes.fileInput} style={{paddingLeft: '15px', marginBottom: '10px'}}>
+                <Typography variant="subtitle2">Choose profile photo</Typography>
+                <FileBase type="file" multiple={false} onDone={({ base64 }) => setFormData({ ...formData, photo: base64 })} />
+            </div>
             <Grid item xs={12}>
                 <TextField name="name" fullWidth required label="Name" variant="outlined" onChange={handleChange}/>
             </Grid>

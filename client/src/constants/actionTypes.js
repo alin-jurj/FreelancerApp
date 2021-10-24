@@ -1,3 +1,12 @@
 export const AUTH = 'AUTH';
 export const LOGOUT = 'LOGOUT';
 export const ADD_PROJECT = 'ADD_PROJECT';
+export const GET_PROJECTS = 'GET_PROJECTS';
+export const DELETE_PROJECT = 'DELETE_PROJECT';
+export const GET_USERS = 'GET_USERS';
+export const GET_COMPANIES = 'GET_COMPANIES';
+export const GET_USER = 'GET_USER';
+export const GET_JOBOFFERS = 'GET_JOBOFFERS';
+export const ADD_JOBOFFER = 'ADD_JOBOFFER';
+export const ADD_COMPLAINT = 'ADD_COMPLAINT';
+export const GET_COMPLAINTS = 'GET_COMPLAINTS';
