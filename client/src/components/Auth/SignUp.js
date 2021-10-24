@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { Container, Paper, Avatar, Typography, FormControlLabel, FormControl, RadioGroup, Radio, Button } from '@material-ui/core';
+import { Container, Paper, Avatar, Typography, FormControlLabel, FormControl, RadioGroup, Radio, Button, Grid } from '@material-ui/core';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import CompanySignUp from './CompanySignUp';
 import ProgrammerSignUp from './ProgrammerSignUp';
 import  useStyle from './styles';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
+import bg from '../../img/bg.svg';
 
 const SignUp = () => {
     const history = useHistory();
@@ -18,7 +19,7 @@ const SignUp = () => {
 
     return (
         <StyledBody>
-        <Container component="main" maxWidth="xs" >
+        <Container component="main" maxWidth="xs" style={{overflow: 'scroll'}}>
             <Paper elevation={3} className={classes.paper}>
             <Avatar className={classes.avatar}>
                 <LockOutlinedIcon />
@@ -32,6 +33,7 @@ const SignUp = () => {
                     <FormControlLabel value="freelancer" control={<Radio />} label="Freelancer" />
                 </RadioGroup>
             </FormControl>
+            
             { 
                 (radio === 'freelancer') && <ProgrammerSignUp />
             }
@@ -47,7 +49,8 @@ const SignUp = () => {
 }
 
 const StyledBody = styled.div`
-  background: url('https://svgshare.com/i/bCk.svg');
+  overflow: auto;
+  background: url(${bg});
   background-size: cover;
   position: fixed;
   top: 0;

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Grid, Container, Paper, Avatar, TextField, Button, Typography } from '@material-ui/core';
+import { Grid, Container, Paper, Avatar, TextField, Button, Typography, CircularProgress } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 import FileBase from 'react-file-base64';
 import  useStyle from './styles';
@@ -12,16 +12,18 @@ import { addProject } from '../../actions/portofolio';
 
 const AddProject = () => {
     const user = JSON.parse(localStorage.getItem('profile'));
-    const history = useHistory();
     const classes = useStyle();
+    const history = useHistory();
     const dispatch = useDispatch();
-    const [projectData, setProjectData] = useState({name: '', username: user.result.email, description: '', photo: '', githubLink: ''});
+
+    const [projectData, setProjectData] = useState({name: '', username: '', description: '', photo: '', githubLink: ''});
+
+    if(!user) return null;
 
     const handleAddProject = async (e) => {
         e.preventDefault();
-
-        dispatch(addProject(projectData));
-        history.push('/MainPage');
+        setProjectData({...projectData, username: user.result.email});
+        dispatch(addProject(projectData, history));
     }
 
     return (

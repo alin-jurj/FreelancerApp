@@ -27,7 +27,7 @@ export const signin = async (req, res) => {
 }
 
 export const signup = async (req, res) => {
-    const { name, email, password, phone, photo, type } = req.body;
+    const { name, email, password, description, phone, photo, type } = req.body;
 
     try {
         const oldUser = await User.findOne({ email });
@@ -36,7 +36,7 @@ export const signup = async (req, res) => {
 
         const hashedPassword = await bcrypt.hash(password, 12);
 
-        const result = await User.create({ email, password: hashedPassword, name, phone, photo, type });
+        const result = await User.create({ email, password: hashedPassword, description, name, phone, photo, type });
 
         const token = jwt.sign( { email: result.email, id: result._id }, process.env.JWT_SECRET, { expiresIn: "1h" } );
 
@@ -46,3 +46,32 @@ export const signup = async (req, res) => {
         console.log(error);
     }
 };
+
+export const getUsers = async (req, res) => {
+    try {
+        const users = await User.find();
+        res.status(200).json(users);
+    } catch (error) {
+        res.status(404).json(error.message);
+    }
+}
+
+export const getCompanies = async (req, res) => {
+    try {
+        const companies = await User.find({type: "company"});
+        res.status(200).json(companies);
+    } catch (error) {
+        res.status(404).json(error.message);
+    }
+}
+
+export const getUser = async (req, res) => {
+    const { id } = req.params;
+
+    try {
+        const user = await User.findById(id);
+        res.status(200).json(user);
+    } catch (error) {
+        res.status(404).json(error.message);
+    }
+}
