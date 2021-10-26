@@ -20,6 +20,12 @@ export default function Menu({ menuOpen, setMenuOpen }) {
 
     setUser(null);
   }
+  const goHome = () => {
+    history.push('/MainPage');
+  }
+  const goToProfile= () => {
+    history.push('/MyProfile');
+  }
 
   const goToPortofolio = () => {
     history.push('/myportofolio');
@@ -49,12 +55,14 @@ export default function Menu({ menuOpen, setMenuOpen }) {
     history.push('/complaints');
   }
 
+
   return (
     <div className={"menu "+(menuOpen && "active")}>
       <ul>
         <li onClick={()=>setMenuOpen(false)}>
           {
             user.result.type === 'freelancer' && (<> 
+            <Button variant="text" color="primary" fullWidth onClick={goToProfile}>Your profile</Button>
             <Button variant="text" color="primary" fullWidth onClick={goToPortofolio}>My Portofolio</Button>
             <Button variant="text" color="primary" fullWidth onClick={goToCompanies}>Companies</Button>
             <Button variant="text" color="primary" fullWidth onClick={goToPending}>Pending Offers</Button>
@@ -75,7 +83,9 @@ export default function Menu({ menuOpen, setMenuOpen }) {
             <Button variant="text" color="primary" fullWidth onClick={goToComplaint}>Make a complaint</Button>
             </>)
           }
-          <Button variant="text" color="primary" fullWidth onClick={logout}>Logout</Button>
+        <Button variant="text" color="primary" fullWidth onClick={goHome}>Home</Button>
+
+        <Button variant="text" color="primary" fullWidth onClick={logout}>Logout</Button>
         </li>
         
      </ul>

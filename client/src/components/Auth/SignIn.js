@@ -23,6 +23,7 @@ const SignIn = () => {
     const handleSignIn = (e) => {
         e.preventDefault();
         dispatch(signin(formData, history));
+        //history.push('/MainPage');
     }
 
     const goToSignUp = () => {

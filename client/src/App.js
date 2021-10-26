@@ -1,4 +1,4 @@
-import React from 'react';
+import {React,useEffect} from 'react';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import { Container } from '@material-ui/core';
 import './App.css';
@@ -16,8 +16,16 @@ import AcceptedOffers from './components/PendingOffers/AcceptedOffers';
 import Complaint from './components/Complaint/Complaint';
 import FreelancersDashboard from './components/ShowFreelancers/FreelancersDashboard';
 import ComplaintsDashboard from './components/Complaint/ComplaintsDashboard';
+import { getCompanies } from './actions/user';
+import { useDispatch } from 'react-redux';
 
 function App() {
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getCompanies());
+}, [dispatch]);
+
   return(
     <BrowserRouter>
         <Switch>
