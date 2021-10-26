@@ -1,23 +1,23 @@
 import { Grid, Divider, CircularProgress } from '@material-ui/core';
 import React from 'react';
 import { useSelector } from 'react-redux';
-import CompanyCard from './CompanyCard';
+import CompanyCard from '../ShowCompanies/CompanyCard';
 
-const Companies = () => {
-    const companies = useSelector((state) => state.users);
+const Freelancers = () => {
+    const freelancers = useSelector((state) => state.users);
 
     
     return (
-        !companies.length ? <CircularProgress /> :
-        <div>
+            !freelancers.length ? <CircularProgress /> : 
+            <div>
             <Grid container spacing={4} justifyContent="flex-start" style={{paddingLeft: '40px', paddingRight: '40px', paddingTop: '100px'}}>
             <Grid item>
                 <Divider variant="middle" style={{marginBottom: '50px'}}/>
             </Grid>
-            {companies.map( (company) => {
+            {freelancers.map( (freelancer) => {
                 return (
                     <Grid item>
-                        <CompanyCard company={company} />
+                        <CompanyCard company={freelancer} />
                     </Grid>
                 )
             })}
@@ -26,4 +26,4 @@ const Companies = () => {
     )
 }
 
-export default Companies
+export default Freelancers;

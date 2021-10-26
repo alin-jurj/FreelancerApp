@@ -33,7 +33,7 @@ const Reviews = ({company}) => {
             <Typography variant="h4" style={{paddingLeft:'15px', fontFamily:'Nunito', color:'#0b31b6'}}>Reviews </Typography>
             <Grid item xs={12}>
                 {
-                    !myReview[0] && <AddReview name={user.result.name} photo={user.result.photo} company={company.name}/>
+                    (!myReview[0] && ( user.result.type === 'freelancer' || user.result.type === 'company') ) && <AddReview name={user.result.name} photo={user.result.photo} company={company.name}/>
                 }
             </Grid>
             <Grid item xs={12}>{
