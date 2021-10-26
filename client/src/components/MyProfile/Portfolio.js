@@ -1,6 +1,11 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import PortfolioList from "./PortfolioList";
 import "./portfolio.scss";
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { getUserProjects } from '../../actions/portofolio'
+import { Card, CardMedia, CardActions, CardContent, Button, Typography, IconButton, Grid, Link } from '@material-ui/core';
+import ProjectCard from "../MyPortofolio/Projects/ProjectCard";
 import {
   featuredPortfolio,
   webPortfolio,
@@ -8,10 +13,22 @@ import {
   designPortfolio,
   contentPortfolio,
 } from "../../data";
+import { getUsers } from "../../api";
 
 export default function Portfolio() {
   const [selected, setSelected] = useState("featured");
   const [data, setData] = useState([]);
+  const user = JSON.parse(localStorage.getItem('profile'));
+  const projects = useSelector((state) => state.projects);
+  
+  const dispatch = useDispatch();
+  let portofolio = projects.filter(function (e) {
+    return e.username === user.result.email;
+})
+
+  useEffect(() => {
+    dispatch(getUserProjects());
+  }, [dispatch]);
   const list = [
     {
       id: "featured",
@@ -34,29 +51,6 @@ export default function Portfolio() {
       title: "Content",
     },
   ];
-
-  useEffect(() => {
-    switch (selected) {
-      case "featured":
-        setData(featuredPortfolio);
-        break;
-      case "web":
-        setData(webPortfolio);
-        break;
-      case "mobile":
-        setData(mobilePortfolio);
-        break;
-      case "design":
-        setData(designPortfolio);
-        break;
-      case "content":
-        setData(contentPortfolio);
-        break;
-      default:
-        setData(featuredPortfolio);
-    }
-  }, [selected]);
-
   return (
     <div className="portfolio" id="portfolio">
       <h1>Portfolio</h1>
@@ -71,16 +65,17 @@ export default function Portfolio() {
         ))}
       </ul>
       <div className="container">
-        {data.map((d) => (
-          <div className="item">
-            <img
-              src={d.img}
-              alt=""
-            />
-            <h3>{d.title}</h3>
+        {portofolio.map((d) => (
+           <div className="item">  
+            <h3> {d.name}</h3>
+            <Link href={d.githubLink}> 
+           <img src={d.photo} alt=""/>
+           </Link>
+            
+            <div/>
           </div>
         ))}
-      </div>
+     </div>
     </div>
   );
 }
