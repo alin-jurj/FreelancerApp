@@ -7,6 +7,7 @@ import userRouter from './routes/user.js';
 import portofolioRouter from './routes/portofolio.js';
 import jobofferRouter from './routes/joboffer.js';
 import complaintRouter from './routes/complaint.js';
+import reviewRouter from './routes/review.js';
 
 dotenv.config();
 
@@ -21,6 +22,7 @@ app.use('/user', userRouter);
 app.use('/portofolio', portofolioRouter);
 app.use('/joboffer', jobofferRouter);
 app.use('/complaint', complaintRouter);
+app.use('/review', reviewRouter);
 
 const PORT = process.env.PORT|| 5000;
 mongoose.connect(process.env.MONGODB_CONNECTION, { useNewUrlParser: true, useUnifiedTopology: true })

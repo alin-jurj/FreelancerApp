@@ -10,3 +10,7 @@ export const GET_JOBOFFERS = 'GET_JOBOFFERS';
 export const ADD_JOBOFFER = 'ADD_JOBOFFER';
 export const ADD_COMPLAINT = 'ADD_COMPLAINT';
 export const GET_COMPLAINTS = 'GET_COMPLAINTS';
+export const GET_REVIEWS = 'GET_REVIEWS';
+export const ADD_REVIEW = 'ADD_REVIEW';
+export const UPDATE_REVIEW = 'UPDATE_REVIEW';
+export const DELETE_REVIEW = 'DELETE_REVIEW';

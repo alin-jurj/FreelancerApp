@@ -25,3 +25,8 @@ export const addJoboffer = (offer) => API.post('/joboffer/add', offer);
 
 export const addComplaint = (complaint) => API.post('/complaint/add', complaint);
 export const getComplaints = () => API.get('/complaint/');
+
+export const addReview = (review) => API.post('/review/add', review);
+export const getReviews = () => API.get('/review/');
+export const updateReview = (id, updatedReview) => API.patch(`/review/${id}`, updatedReview);
+export const deleteReview = (id) => API.delete(`/review/${id}`);
