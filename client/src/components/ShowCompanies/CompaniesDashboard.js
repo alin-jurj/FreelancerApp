@@ -1,21 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Topbar from '../MyProfile/Topbar';
 import Menu from '../MainPage/Menu';
 import bg from '../../img/bg.svg';
 import styled from 'styled-components';
 import GlobalStyle from '../LandingPage/GlobalStyle';
-import { useDispatch } from 'react-redux';
-import { getCompanies } from '../../actions/user';
+
+
 import Companies from './Companies';
 
 const CompaniesDashboard = () => {
     const [menuOpen,setMenuOpen] = useState(false);
-    const dispatch = useDispatch();
+    
 
-    useEffect(() => {
-        dispatch(getCompanies());
-    }, [dispatch]);
-
+    
     return (
             <BodyStyle>
             <GlobalStyle />
