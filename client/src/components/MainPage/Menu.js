@@ -60,6 +60,7 @@ export default function Menu({ menuOpen, setMenuOpen }) {
     <div className={"menu "+(menuOpen && "active")}>
       <ul>
         <li onClick={()=>setMenuOpen(false)}>
+          <Button variant="text" color="primary" fullWidth onClick={goHome}>Home</Button>
           {
             user.result.type === 'freelancer' && (<> 
             <Button variant="text" color="primary" fullWidth onClick={goToProfile}>Your profile</Button>
