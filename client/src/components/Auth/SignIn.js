@@ -23,6 +23,14 @@ const SignIn = () => {
     const handleSignIn = (e) => {
         e.preventDefault();
         dispatch(signin(formData, history));
+        const result = e?.profileObj;
+        const token = e?.tokenId;
+        try {
+            dispatch({type: 'AUTH' , data: {result, token}});
+        } catch (error) {
+            console.log(error);
+        }
+        history.push('/MainPage');
     }
 
     const goToSignUp = () => {

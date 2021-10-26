@@ -1,8 +1,17 @@
+import react, {useState, useEffect} from 'react'
 import "./topbar.scss";
 import {AiFillMail} from "react-icons/ai"
 import {BsFillPersonFill} from "react-icons/bs"
+import {useSelector} from 'react-redux'
+import { getUsers } from "../../api";
 export default function Topbar({ menuOpen, setMenuOpen }) {
-  return (
+//   useEffect(() => {
+//     dispatch(getUsers());
+// }, [dispatch]);
+//   const users = useSelector((state) => state.users);
+    const [user,setUser] =useState(JSON.parse(localStorage.getItem('profile')));
+  
+    return (
     <div className={"topbar " + (menuOpen && "active")}>
       <div className="wrapper">
         <div className="left">
@@ -11,11 +20,11 @@ export default function Topbar({ menuOpen, setMenuOpen }) {
           </a>
           <div className="itemContainer">
             <BsFillPersonFill className="icon" />
-            <span>+44 924 12 74</span>
+            <span>{user.result.phone}</span>
           </div>
           <div className="itemContainer">
             <AiFillMail className="icon" />
-            <span>React_app@gmail.com</span>
+            <span>{user.result.email}</span>
           </div>
         </div>
         <div className="right">

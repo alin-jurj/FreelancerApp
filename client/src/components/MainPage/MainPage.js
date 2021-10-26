@@ -7,6 +7,10 @@ import bg from '../../img/bg.svg';
 import styled from 'styled-components';
 import GlobalStyle from '../LandingPage/GlobalStyle';
 import SearchBar from './SearchBar';
+import {Divider} from '@material-ui/core';
+import Tasks from './Tasks';
+// import CategoriesCarousel from '../LandingPage/CategoriesCarousel';
+
 export default function MainPage() {
     const [menuOpen,setMenuOpen] = useState(false)
     return(
@@ -15,9 +19,12 @@ export default function MainPage() {
             <GlobalStyle />
             <div className="app">
                 <Topbar menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
+                <SearchBar placeholder="Enter the name of a company..."/>
                 <Menu menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
-                
+                <Divider variant="middle"/>
+                <Tasks/>
             </div>
+             
         </HeaderStyle>
         
     )
