@@ -10,6 +10,7 @@ import axios from 'axios';
 import { getJoboffers } from '../../actions/joboffers';
 import { useDispatch } from 'react-redux';
 import ShowJobOffers from './ShowJobOffers';
+import Reviews from '../Review/Reviews';
 
 const CompanyInfo = () => {
     const [menuOpen,setMenuOpen] = useState(false);
@@ -63,6 +64,12 @@ const CompanyInfo = () => {
                 </Grid>
                 <Grid item xs={12}>
                     <Divider variant="middle" style={{marginBottom:'40px'}}/>
+                </Grid>
+                <Grid item xs={12}>
+                    <Reviews company={company}/>
+                </Grid>
+                <Grid item xs={12}>
+                    <Divider variant="middle" style={{marginBottom:'40px', marginTop:'30px'}}/>
                 </Grid>
                 <Grid item xs={12}>
                     <ShowJobOffers name={company.name}  email={company.email}/>

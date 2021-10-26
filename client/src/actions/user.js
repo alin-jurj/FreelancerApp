@@ -1,4 +1,4 @@
-import { GET_USERS, GET_COMPANIES, GET_USER } from '../constants/actionTypes';
+import { GET_USERS, GET_COMPANIES, GET_USER, GET_FREELANCERS, DELETE_USER } from '../constants/actionTypes';
 import * as api from '../api/index';
 
 export const getUsers = () => async (dispatch) => {
@@ -19,6 +19,15 @@ export const getCompanies = () => async (dispatch) => {
     }
 }
 
+export const getFreelancers = () => async (dispatch) => {
+    try {
+        const { data } = await api.getFreelancers();
+        dispatch({ type: GET_FREELANCERS, payload: data });
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 export const getUser = (id) => async () => {
     try {
         const { data } = await api.getUser(id);
@@ -27,3 +36,13 @@ export const getUser = (id) => async () => {
         console.log(error);
     }
 }
+
+export const deleteUser = (id) => async (dispatch) => {
+    try {
+      await api.deleteUser(id);
+  
+      dispatch({ type: DELETE_USER, payload: id });
+    } catch (error) {
+      console.log(error);
+    }
+  };

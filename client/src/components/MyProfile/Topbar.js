@@ -10,12 +10,14 @@ export default function Topbar({ menuOpen, setMenuOpen }) {
 // }, [dispatch]);
 //   const users = useSelector((state) => state.users);
     const [user,setUser] =useState(JSON.parse(localStorage.getItem('profile')));
+
+    if (!user) return null;
   
     return (
     <div className={"topbar " + (menuOpen && "active")}>
       <div className="wrapper">
         <div className="left">
-          <a href="#intro" className="logo">
+          <a href="/MainPage" className="logo">
             FreelanceApp
           </a>
           <div className="itemContainer">

@@ -14,6 +14,8 @@ import CompanyInfo from './components/ShowCompanies/CompanyInfo';
 import PendingOffers from './components/PendingOffers/PendingOffers';
 import AcceptedOffers from './components/PendingOffers/AcceptedOffers';
 import Complaint from './components/Complaint/Complaint';
+import FreelancersDashboard from './components/ShowFreelancers/FreelancersDashboard';
+import ComplaintsDashboard from './components/Complaint/ComplaintsDashboard';
 import { getCompanies } from './actions/user';
 import { useDispatch } from 'react-redux';
 
@@ -39,6 +41,8 @@ function App() {
           <Route path="/pendingoffers" exact component={PendingOffers} />
           <Route path="/acceptedoffers" exact component={AcceptedOffers} />
           <Route path="/complaint" exact component={Complaint} />
+          <Route path="/freelancers" exact component={FreelancersDashboard} />
+          <Route path="/complaints" exact component={ComplaintsDashboard} />
         </Switch>
     </BrowserRouter>
   )

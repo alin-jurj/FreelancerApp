@@ -12,7 +12,7 @@ const ShowJobOffers = ({name, email}) => {
 
     return (
         <Grid container spacing={3} elevation={4}>
-            <Typography variant="h4" style={{paddingLeft:'15px', fontFamily:'Nunito'}}>{name}'s Job Offers</Typography>
+            <Typography variant="h4" style={{paddingLeft:'15px', fontFamily:'Nunito', color:'#0b31b6'}}>{name}'s Job Offers</Typography>
             {
                 joboffersByCompany.map((joboffer) =>{
                     return (

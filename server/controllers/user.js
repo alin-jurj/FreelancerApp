@@ -1,6 +1,7 @@
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
+import mongoose from 'mongoose';
 
 import User from '../models/user.js';
 
@@ -65,6 +66,15 @@ export const getCompanies = async (req, res) => {
     }
 }
 
+export const getFreelancers = async (req, res) => {
+    try {
+        const freelancers = await User.find({type: "freelancer"});
+        res.status(200).json(freelancers);
+    } catch (error) {
+        res.status(404).json(error.message);
+    }
+}
+
 export const getUser = async (req, res) => {
     const { id } = req.params;
 
@@ -74,4 +84,14 @@ export const getUser = async (req, res) => {
     } catch (error) {
         res.status(404).json(error.message);
     }
+}
+
+export const deleteUser = async (req, res) => {
+    const { id } = req.params;
+
+    if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No user with id: ${id}`);
+
+    await User.findByIdAndRemove(id);
+
+    res.json({ message: "User deleted successfully." });
 }

@@ -47,18 +47,46 @@ export default function Menu({ menuOpen, setMenuOpen }) {
     history.push('/complaint');
   }
 
+  const goToFreelancers = () => {
+    history.push('/freelancers');
+  }
+
+  const goToComplaints = () => {
+    history.push('/complaints');
+  }
+
+
   return (
     <div className={"menu "+(menuOpen && "active")}>
       <ul>
         <li onClick={()=>setMenuOpen(false)}>
+          <Button variant="text" color="primary" fullWidth onClick={goHome}>Home</Button>
+          {
+            user.result.type === 'freelancer' && (<> 
+            <Button variant="text" color="primary" fullWidth onClick={goToProfile}>Your profile</Button>
+            <Button variant="text" color="primary" fullWidth onClick={goToPortofolio}>My Portofolio</Button>
+            <Button variant="text" color="primary" fullWidth onClick={goToCompanies}>Companies</Button>
+            <Button variant="text" color="primary" fullWidth onClick={goToPending}>Pending Offers</Button>
+            <Button variant="text" color="primary" fullWidth onClick={goToAccepted}>Accepted Offers</Button>
+            <Button variant="text" color="primary" fullWidth onClick={goToComplaint}>Make a complaint</Button>
+            </>)
+          }
+          {
+            user.result.type === 'admin' && (<>
+            <Button variant="text" color="primary" fullWidth onClick={goToCompanies}>Companies</Button>
+            <Button variant="text" color="primary" fullWidth onClick={goToFreelancers}>Freelancers</Button>
+            <Button variant="text" color="primary" fullWidth onClick={goToComplaints}>Complaints</Button>
+            </>)
+          }
+          {
+            user.result.type === 'company' && (<>
+            <Button variant="text" color="primary" fullWidth onClick={goToFreelancers}>Freelancers</Button>
+            <Button variant="text" color="primary" fullWidth onClick={goToComplaint}>Make a complaint</Button>
+            </>)
+          }
         <Button variant="text" color="primary" fullWidth onClick={goHome}>Home</Button>
-        <Button variant="text" color="primary" fullWidth onClick={goToProfile}>Your profile</Button>
-          <Button variant="text" color="primary" fullWidth onClick={goToPortofolio}>My Portofolio</Button>
-          <Button variant="text" color="primary" fullWidth onClick={goToCompanies}>Companies</Button>
-          <Button variant="text" color="primary" fullWidth onClick={goToPending}>Pending Offers</Button>
-          <Button variant="text" color="primary" fullWidth onClick={goToAccepted}>Accepted Offers</Button>
-          <Button variant="text" color="primary" fullWidth onClick={goToComplaint}>Make a complaint</Button>
-          <Button variant="text" color="primary" fullWidth onClick={logout}>Logout</Button>
+
+        <Button variant="text" color="primary" fullWidth onClick={logout}>Logout</Button>
         </li>
         
      </ul>

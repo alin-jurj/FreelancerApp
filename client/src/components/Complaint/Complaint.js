@@ -16,7 +16,7 @@ const Complaint = () => {
     const history = useHistory();
     const dispatch = useDispatch();
     const user = JSON.parse(localStorage.getItem('profile'));
-    const [formData, setFormData] = useState({from:user.result.email, against: '', reason: ''});
+    const [formData, setFormData] = useState({from:user.result.name, against: '', reason: ''});
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
