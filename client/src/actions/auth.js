@@ -5,11 +5,10 @@ import { useHistory } from 'react-router-dom';
 export const signin = (formData, router) => async (dispatch) => {
   try {
     const { data } = await api.signIn(formData);
-    const history = useHistory();
+
     dispatch({ type: AUTH, data });
 
-    router.push('/');
-    
+    router.push('/MainPage');
   } catch (error) {
     console.log(error);
   }
