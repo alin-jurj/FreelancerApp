@@ -5,11 +5,10 @@ import { Grid, CircularProgress } from '@material-ui/core';
 import ProjectCard from './ProjectCard';
 import Carousel from 'react-elastic-carousel';
 
-const Projects = () => {
-    const user = JSON.parse(localStorage.getItem('profile'));
+const Projects = ({user}) => {
     const projects = useSelector((state) => state.projects);
     let portofolio = projects.filter(function (e) {
-        return e.username === user.result.email;
+        return e.username === user.email;
     })
 
     

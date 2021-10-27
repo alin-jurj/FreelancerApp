@@ -14,7 +14,11 @@ const CompanyCard = ({company}) => {
     const dispatch = useDispatch();
 
     const handleClick = () => {
-        history.push(`/company/${company._id}`);
+        if (user.result.type === 'company'){
+            history.push(`/freelancer/${company._id}`);
+        }else{
+            history.push(`/company/${company._id}`);
+        }
     }
 
     return (
@@ -26,13 +30,7 @@ const CompanyCard = ({company}) => {
             <Grid container justifyContent="flex-start">
                 <Grid item xs={6}>
                     <CardContent>
-                        {
-                            company.type === 'company' ? (
-                                <Typography className={classes.hover} variant="h6" style={{fontFamily:'Nunito'}} onClick={handleClick}>{company.name}</Typography>
-                            ) : (
-                                <Typography className={classes.hover} variant="h6" style={{fontFamily:'Nunito'}} >{company.name}</Typography>
-                            )
-                        }
+                        <Typography className={classes.hover} variant="h6" style={{fontFamily:'Nunito'}} onClick={handleClick}>{company.name}</Typography>
                     </CardContent>
                 </Grid>
                 <Grid item xs={6}>
