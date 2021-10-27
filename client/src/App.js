@@ -16,6 +16,7 @@ import AcceptedOffers from './components/PendingOffers/AcceptedOffers';
 import Complaint from './components/Complaint/Complaint';
 import FreelancersDashboard from './components/ShowFreelancers/FreelancersDashboard';
 import ComplaintsDashboard from './components/Complaint/ComplaintsDashboard';
+import FreelancerInfo from './components/ShowCompanies/FreelancerInfo';
 import { getCompanies } from './actions/user';
 import { useDispatch } from 'react-redux';
 
@@ -38,6 +39,7 @@ function App() {
           <Route path="/myportofolio" exact component={MyPortofolio}/>
           <Route path="/companies" exact component={CompaniesDashboard} />
           <Route path="/company/:id" exact component={CompanyInfo} />
+          <Route path="/freelancer/:id" exact component={FreelancerInfo} />
           <Route path="/pendingoffers" exact component={PendingOffers} />
           <Route path="/acceptedoffers" exact component={AcceptedOffers} />
           <Route path="/complaint" exact component={Complaint} />

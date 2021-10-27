@@ -1,6 +1,5 @@
 import * as React from 'react';
 import {useState} from 'react';
-import { styled } from '@material-ui/styles';
 import { Card, CardMedia, CardActions, CardContent, Button, Typography, IconButton, Grid, Link } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ExpandLessIcon from '@material-ui/icons/ExpandLess';
@@ -9,6 +8,7 @@ import { useDispatch } from 'react-redux';
 import { deleteProject } from '../../../actions/portofolio';
 
 export default function ProjectCard({project}) {
+    const user = JSON.parse(localStorage.getItem('profile'));
     const [expanded, setExpanded] = useState(false);
     const dispatch = useDispatch();
 
@@ -34,11 +34,13 @@ export default function ProjectCard({project}) {
                         }
                             </IconButton>
                         </Button>
-                        <Button onClick={() => dispatch(deleteProject(project._id))}>
+                        {
+                            user.result.type === 'freelancer' && <Button onClick={() => dispatch(deleteProject(project._id))}>
                             <IconButton>
                                 <DeleteIcon />
                             </IconButton>
                         </Button>
+                        }
                     </CardActions>
                 </Grid>
                 </Grid>

@@ -20,9 +20,7 @@ export default function Menu({ menuOpen, setMenuOpen }) {
 
     setUser(null);
   }
-  const goHome = () => {
-    history.push('/MainPage');
-  }
+  
   const goToProfile= () => {
     history.push('/MyProfile');
   }
@@ -60,33 +58,30 @@ export default function Menu({ menuOpen, setMenuOpen }) {
     <div className={"menu "+(menuOpen && "active")}>
       <ul>
         <li onClick={()=>setMenuOpen(false)}>
-          <Button variant="text" color="primary" fullWidth onClick={goHome}>Home</Button>
           {
             user.result.type === 'freelancer' && (<> 
-            <Button variant="text" color="primary" fullWidth onClick={goToProfile}>Your profile</Button>
-            <Button variant="text" color="primary" fullWidth onClick={goToPortofolio}>My Portofolio</Button>
-            <Button variant="text" color="primary" fullWidth onClick={goToCompanies}>Companies</Button>
-            <Button variant="text" color="primary" fullWidth onClick={goToPending}>Pending Offers</Button>
-            <Button variant="text" color="primary" fullWidth onClick={goToAccepted}>Accepted Offers</Button>
-            <Button variant="text" color="primary" fullWidth onClick={goToComplaint}>Make a complaint</Button>
+            <Button variant="text" color="primary" style={{color: 'white'}} fullWidth onClick={goToProfile}>Your profile</Button>
+            <Button variant="text" color="primary" style={{color: 'white'}} fullWidth onClick={goToPortofolio}>My Portofolio</Button>
+            <Button variant="text" color="primary" style={{color: 'white'}} fullWidth onClick={goToCompanies}>Companies</Button>
+            <Button variant="text" color="primary" style={{color: 'white'}} fullWidth onClick={goToPending}>Pending Offers</Button>
+            <Button variant="text" color="primary" style={{color: 'white'}} fullWidth onClick={goToAccepted}>Accepted Offers</Button>
+            <Button variant="text" color="primary" style={{color: 'white'}} fullWidth onClick={goToComplaint}>Make a complaint</Button>
             </>)
           }
           {
             user.result.type === 'admin' && (<>
-            <Button variant="text" color="primary" fullWidth onClick={goToCompanies}>Companies</Button>
-            <Button variant="text" color="primary" fullWidth onClick={goToFreelancers}>Freelancers</Button>
-            <Button variant="text" color="primary" fullWidth onClick={goToComplaints}>Complaints</Button>
+            <Button variant="text" color="primary" style={{color: 'white'}} fullWidth onClick={goToCompanies}>Companies</Button>
+            <Button variant="text" color="primary" style={{color: 'white'}} fullWidth onClick={goToFreelancers}>Freelancers</Button>
+            <Button variant="text" color="primary" style={{color: 'white'}} fullWidth onClick={goToComplaints}>Complaints</Button>
             </>)
           }
           {
             user.result.type === 'company' && (<>
-            <Button variant="text" color="primary" fullWidth onClick={goToFreelancers}>Freelancers</Button>
-            <Button variant="text" color="primary" fullWidth onClick={goToComplaint}>Make a complaint</Button>
+            <Button variant="text" color="primary" style={{color: 'white'}} fullWidth onClick={goToFreelancers}>Freelancers</Button>
+            <Button variant="text" color="primary" style={{color: 'white'}} fullWidth onClick={goToComplaint}>Make a complaint</Button>
             </>)
           }
-        <Button variant="text" color="primary" fullWidth onClick={goHome}>Home</Button>
-
-        <Button variant="text" color="primary" fullWidth onClick={logout}>Logout</Button>
+        <Button variant="text" color="white" style={{color: 'white'}} fullWidth onClick={logout}>Logout</Button>
         </li>
         
      </ul>
