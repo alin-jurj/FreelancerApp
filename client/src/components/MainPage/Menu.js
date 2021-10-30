@@ -50,10 +50,17 @@ export default function Menu({ menuOpen, setMenuOpen }) {
   const goToFreelancers = () => {
     history.push('/freelancers');
   }
+  const goToAssignTasks = () => {
+    history.push('/AssignTasks');
+  }
 
   const goToComplaints = () => {
     history.push('/complaints');
   }
+  const goToPayment= () => {
+    history.push('/Payment');
+  }
+
 
 
   return (
@@ -69,6 +76,7 @@ export default function Menu({ menuOpen, setMenuOpen }) {
             <Button variant="text" color="primary" fullWidth onClick={goToPending}>Pending Offers</Button>
             <Button variant="text" color="primary" fullWidth onClick={goToAccepted}>Accepted Offers</Button>
             <Button variant="text" color="primary" fullWidth onClick={goToComplaint}>Make a complaint</Button>
+            <Button variant="text" color="primary" fullWidth onClick={goToPayment}>Add a credit card/photo</Button>
             </>)
           }
           {
@@ -81,10 +89,10 @@ export default function Menu({ menuOpen, setMenuOpen }) {
           {
             user.result.type === 'company' && (<>
             <Button variant="text" color="primary" fullWidth onClick={goToFreelancers}>Freelancers</Button>
+            <Button variant="text" color="primary" fullWidth onClick={goToAssignTasks}>Assign tasks</Button>
             <Button variant="text" color="primary" fullWidth onClick={goToComplaint}>Make a complaint</Button>
             </>)
           }
-        <Button variant="text" color="primary" fullWidth onClick={goHome}>Home</Button>
 
         <Button variant="text" color="primary" fullWidth onClick={logout}>Logout</Button>
         </li>

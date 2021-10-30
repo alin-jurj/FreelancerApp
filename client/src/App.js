@@ -18,13 +18,17 @@ import FreelancersDashboard from './components/ShowFreelancers/FreelancersDashbo
 import ComplaintsDashboard from './components/Complaint/ComplaintsDashboard';
 import { getCompanies } from './actions/user';
 import { useDispatch } from 'react-redux';
-
+import AssignTasks from './components/AssignTasks/AssignTasks';
+import CreditCard from './components/MyProfile/Payment';
+import { AddCreditCard } from './components/Auth/AddCreditCard';
+import {Payment} from './components/MyProfile/Payment'
+import { getUserCreditCards } from './actions/CreditCard';
 function App() {
 
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getCompanies());
-}, [dispatch]);
+//    const dispatch = useDispatch();
+//    useEffect(() => {
+//      dispatch(getUserCreditCards());
+//  }, [dispatch]);
 
   return(
     <BrowserRouter>
@@ -42,7 +46,10 @@ function App() {
           <Route path="/acceptedoffers" exact component={AcceptedOffers} />
           <Route path="/complaint" exact component={Complaint} />
           <Route path="/freelancers" exact component={FreelancersDashboard} />
+          <Route path="/AssignTasks" exact component={AssignTasks} />
           <Route path="/complaints" exact component={ComplaintsDashboard} />
+          <Route path="/Payment" exact component={Payment} />
+          <Route path="/addCreditCard" exact component={AddCreditCard} />
         </Switch>
     </BrowserRouter>
   )

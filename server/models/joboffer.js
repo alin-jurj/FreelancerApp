@@ -7,6 +7,7 @@ const jobofferSchema = mongoose.Schema({
     name: {type: String, required: true},
     programmer: {type: String},
     status: {type: String},
+    percentage:{type: Number},
     price: {type: Number},
 });
 
