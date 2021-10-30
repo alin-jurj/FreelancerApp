@@ -20,9 +20,7 @@ export const addJobOffer = (offer) => async (dispatch) => {
 }
 export const updateJobOffer = (id,offer) => async (dispatch) => {
     try {
-        console.log("Am ajuns");
         const { data } = await api.updateJobOffer(id,offer);
-        console.log("Am ajuns dupa");
         dispatch({ type: UPDATE_JOBOFFER, payload: data });
     } catch (error) {
         console.error(error);

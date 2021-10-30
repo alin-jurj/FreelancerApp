@@ -23,6 +23,7 @@ import CreditCard from './components/MyProfile/Payment';
 import { AddCreditCard } from './components/Auth/AddCreditCard';
 import {Payment} from './components/MyProfile/Payment'
 import { getUserCreditCards } from './actions/CreditCard';
+import FinishedTasksCompany from './components/FinishedTasksCompany/FinishedTasksCompany';
 function App() {
 
 //    const dispatch = useDispatch();
@@ -50,6 +51,7 @@ function App() {
           <Route path="/complaints" exact component={ComplaintsDashboard} />
           <Route path="/Payment" exact component={Payment} />
           <Route path="/addCreditCard" exact component={AddCreditCard} />
+          <Route path="/FinishedTasks" exact component={FinishedTasksCompany} />
         </Switch>
     </BrowserRouter>
   )

@@ -60,7 +60,9 @@ export default function Menu({ menuOpen, setMenuOpen }) {
   const goToPayment= () => {
     history.push('/Payment');
   }
-
+  const goToFinishedTasks= () => {
+    history.push('/FinishedTasks');
+  }
 
 
   return (
@@ -91,6 +93,7 @@ export default function Menu({ menuOpen, setMenuOpen }) {
             <Button variant="text" color="primary" fullWidth onClick={goToFreelancers}>Freelancers</Button>
             <Button variant="text" color="primary" fullWidth onClick={goToAssignTasks}>Assign tasks</Button>
             <Button variant="text" color="primary" fullWidth onClick={goToComplaint}>Make a complaint</Button>
+            <Button variant="text" color="primary" fullWidth onClick={goToFinishedTasks}>Finished tasks</Button>
             </>)
           }
 

@@ -21,7 +21,7 @@ const AssignJobCard = ({joboffer}) => {
   const handleOffer = (decision) => {
         setStatus({...newstatus, status: decision});
         dispatch(updateJobOffer(joboffer._id,newstatus))
-        history.push('/AssignTasks');
+        
   }
     return (
         <Paper elevation={6} style={{paddingTop:'20px', paddingBottom:'20px'}}>

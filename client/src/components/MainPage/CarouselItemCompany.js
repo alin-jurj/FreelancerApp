@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import { Typography } from '@material-ui/core';
 import styled from 'styled-components';
 import Progress from './Progress';
@@ -8,6 +8,7 @@ import {useDispatch, useSelector} from "react-redux";
 import { updateJobOffer } from '../../actions/joboffers';
 import { height } from '@mui/system';
 import { getJoboffers } from '../../actions/joboffers';
+import { collapseClasses } from '@mui/material';
 const CarouselItemCompany = ({name, image,value, item}) => {
 
     const dispatch = useDispatch();
@@ -20,11 +21,18 @@ const CarouselItemCompany = ({name, image,value, item}) => {
         status: item.status,
         percentage: item.percentage,
         price: item.price,
-    });
+    });  
 
     const updateLoading = () => {
-            setStatus({...newstatus, percentage: item.percentage + 25});
-            dispatch(updateJobOffer(item._id,newstatus))
+            
+                if(item.percentage<100) {
+                setStatus({...newstatus, percentage: item.percentage + 25});
+                }
+                else{
+                    setStatus({...newstatus, status: 'finished'});
+                }
+            
+                dispatch(updateJobOffer(item._id,newstatus))
             
             dispatch(getJoboffers());
             console.log(item.percentage);
