@@ -17,12 +17,14 @@ const CompanyCard = ({company}) => {
         if (user.result.type === 'company'){
             history.push(`/freelancer/${company._id}`);
         }else{
+
             history.push(`/company/${company._id}`);
         }
     }
 
     return (
         <>
+        
         <GlobalStyle />
         <Card>
             <CardMedia component="img" height="200" src={company.photo} />
@@ -47,7 +49,8 @@ const CompanyCard = ({company}) => {
                     }
                 </Grid>
             </Grid>
-        </Card>
+        </Card> 
+     
         </>
     );
 }

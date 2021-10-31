@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+
 import Carousel from 'react-elastic-carousel';
 import { CarouselItemComponent } from '../LandingPage/CarouselItemComponent';
 import styled from 'styled-components';
 import CarouselItem from '../LandingPage/CarouselItem';
 import SearchBar from './SearchBar';
-const Tasks = () => {
+import gamedev from '../../img/carousel/game_dev.png'
+import mobapp from '../../img/carousel/mob_app.png'
+import sec from '../../img/carousel/sec.png'
+import webapp from '../../img/carousel/web_dev.png'
 
+
+const Tasks = () => {
+ 
     return (
         <CarouselStyled>
         <div className="carousel">
@@ -23,8 +30,13 @@ const Tasks = () => {
 
             </Carousel>
             </CarouselStyled>
-    );
-}
+    )}
+            
+                
+            
+
+            
+
 const CarouselStyled = styled.div`
     h1{
         margin-top: 400px;

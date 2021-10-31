@@ -19,7 +19,7 @@ export default function MyPortofolio() {
     const dispatch = useDispatch();
 
     console.log(user.result.email);
-
+ 
     useEffect(() => {
         dispatch(getUserProjects());
     }, [dispatch]);

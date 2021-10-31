@@ -1,81 +1,38 @@
-import React, { useEffect, useState } from "react";
-import PortfolioList from "./PortfolioList";
-import "./portfolio.scss";
-import { useSelector } from 'react-redux';
+import React, { useState , useEffect } from "react";
+import styled from 'styled-components';
+import Topbar from '../MyProfile/Topbar';
+import Menu from '../MainPage/Menu';
+import bg from '../../img/bg.svg';
+import GlobalStyle from '../LandingPage/GlobalStyle';
+import {Grid} from '@material-ui/core';
+
 import { useDispatch } from 'react-redux';
-import { getUserProjects } from '../../actions/portofolio'
-import { Card, CardMedia, CardActions, CardContent, Button, Typography, IconButton, Grid, Link } from '@material-ui/core';
-import ProjectCard from "../MyPortofolio/Projects/ProjectCard";
-import {
-  featuredPortfolio,
-  webPortfolio,
-  mobilePortfolio,
-  designPortfolio,
-  contentPortfolio,
-} from "../../data";
-import { getUsers } from "../../api";
+import { getUserProjects } from '../../actions/portofolio';
+import { Divider, Typography } from "@material-ui/core";
+import PortofolioList from './PortfolioList'
+export default function Portofolio() {
+    const user = JSON.parse(localStorage.getItem('profile'));
+    const [menuOpen,setMenuOpen] = useState(false);
+    const dispatch = useDispatch();
 
-export default function Portfolio() {
-  const [selected, setSelected] = useState("featured");
-  const [data, setData] = useState([]);
-  const user = JSON.parse(localStorage.getItem('profile'));
-  const projects = useSelector((state) => state.projects);
-  
-  const dispatch = useDispatch();
-  let portofolio = projects.filter(function (e) {
-    return e.username === user.result.email;
-})
+    console.log(user.result.email);
+ 
+    useEffect(() => {
+        dispatch(getUserProjects());
+    }, [dispatch]);
 
-  useEffect(() => {
-    dispatch(getUserProjects());
-  }, [dispatch]);
-  const list = [
-    {
-      id: "featured",
-      title: "Featured",
-    },
-    {
-      id: "web",
-      title: "Web App",
-    },
-    {
-      id: "mobile",
-      title: "Mobile App",
-    },
-    {
-      id: "design",
-      title: "Design",
-    },
-    {
-      id: "content",
-      title: "Content",
-    },
-  ];
-  return (
-    <div className="portfolio" id="portfolio">
-      <h1>Portfolio</h1>
-      <ul>
-        {list.map((item) => (
-          <PortfolioList
-            title={item.title}
-            active={selected === item.id}
-            setSelected={setSelected}
-            id={item.id}
-          />
-        ))}
-      </ul>
-      <div className="container">
-        {portofolio.map((d) => (
-           <div className="item">  
-            <h3> {d.name}</h3>
-            <Link href={d.githubLink}> 
-           <img src={d.photo} alt=""/>
-           </Link>
+    return (
+        <>
+            <Grid className="sections" container align="left">
+                <Grid item xs={12} >
+                    <Typography variant="h4" style={{paddingTop: '40px', paddingBottom:'40px', paddingLeft:'770px', color:"#290a42", fontFamily: 'Nunito'}} >My Portofolio</Typography>
+                    {/* <Divider variant="middle" style={{marginTop: '20px', marginBottom:'20px'}}/> */}
+                     <PortofolioList /> 
+                </Grid>
+                
+            </Grid>
             
-            <div/>
-          </div>
-        ))}
-     </div>
-    </div>
-  );
+      
+        </>
+    );
 }

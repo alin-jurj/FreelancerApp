@@ -48,9 +48,18 @@ export default function Menu({ menuOpen, setMenuOpen }) {
   const goToFreelancers = () => {
     history.push('/freelancers');
   }
+  const goToAssignTasks = () => {
+    history.push('/AssignTasks');
+  }
 
   const goToComplaints = () => {
     history.push('/complaints');
+  }
+  const goToPayment= () => {
+    history.push('/Payment');
+  }
+  const goToFinishedTasks= () => {
+    history.push('/FinishedTasks');
   }
 
 
@@ -60,12 +69,14 @@ export default function Menu({ menuOpen, setMenuOpen }) {
         <li onClick={()=>setMenuOpen(false)}>
           {
             user.result.type === 'freelancer' && (<> 
-            <Button variant="text" color="primary" style={{color: 'white'}} fullWidth onClick={goToProfile}>Your profile</Button>
-            <Button variant="text" color="primary" style={{color: 'white'}} fullWidth onClick={goToPortofolio}>My Portofolio</Button>
-            <Button variant="text" color="primary" style={{color: 'white'}} fullWidth onClick={goToCompanies}>Companies</Button>
-            <Button variant="text" color="primary" style={{color: 'white'}} fullWidth onClick={goToPending}>Pending Offers</Button>
-            <Button variant="text" color="primary" style={{color: 'white'}} fullWidth onClick={goToAccepted}>Accepted Offers</Button>
-            <Button variant="text" color="primary" style={{color: 'white'}} fullWidth onClick={goToComplaint}>Make a complaint</Button>
+
+            <Button variant="text" color="primary" fullWidth onClick={goToProfile}>Your profile</Button>
+            <Button variant="text" color="primary" fullWidth onClick={goToPortofolio}>My Portofolio</Button>
+            <Button variant="text" color="primary" fullWidth onClick={goToCompanies}>Companies</Button>
+            <Button variant="text" color="primary" fullWidth onClick={goToPending}>Pending Offers</Button>
+            <Button variant="text" color="primary" fullWidth onClick={goToAccepted}>Accepted Offers</Button>
+            <Button variant="text" color="primary" fullWidth onClick={goToComplaint}>Make a complaint</Button>
+            <Button variant="text" color="primary" fullWidth onClick={goToPayment}>Add a credit card</Button>
             </>)
           }
           {
@@ -77,11 +88,16 @@ export default function Menu({ menuOpen, setMenuOpen }) {
           }
           {
             user.result.type === 'company' && (<>
-            <Button variant="text" color="primary" style={{color: 'white'}} fullWidth onClick={goToFreelancers}>Freelancers</Button>
-            <Button variant="text" color="primary" style={{color: 'white'}} fullWidth onClick={goToComplaint}>Make a complaint</Button>
+
+            <Button variant="text" color="primary" fullWidth onClick={goToFreelancers}>Freelancers</Button>
+            <Button variant="text" color="primary" fullWidth onClick={goToAssignTasks}>Assign tasks</Button>
+            <Button variant="text" color="primary" fullWidth onClick={goToComplaint}>Make a complaint</Button>
+            <Button variant="text" color="primary" fullWidth onClick={goToFinishedTasks}>Finished tasks</Button>
             </>)
           }
-        <Button variant="text" color="white" style={{color: 'white'}} fullWidth onClick={logout}>Logout</Button>
+
+        <Button variant="text" color="primary" fullWidth onClick={logout}>Logout</Button>
+
         </li>
         
      </ul>

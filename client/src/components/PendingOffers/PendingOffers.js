@@ -47,8 +47,10 @@ const PendingOffers = () => {
                 {
                     pendingUserOffers.map( (offer) => {
                         return (
+                            <Grid container justifyContent="flex-start" style={{paddingLeft:'50px', paddingRight:'50px', paddingTop:'100px'}}>
                             <Grid item xs={12}>
                                 <PendingOfferCard offer={offer} />
+                            </Grid>
                             </Grid>
                         )
                     })

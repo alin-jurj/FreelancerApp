@@ -11,7 +11,7 @@ const JobOfferCard = ({joboffer}) => {
     const dispatch = useDispatch();
     const user = JSON.parse(localStorage.getItem('profile'));
     const [addOffer, setAddOffer] = useState(false);
-    const [offer, setOffer] = useState({company: joboffer.company, companyname: joboffer.companyname, description: joboffer.description, name: joboffer.name, programmer: user.result.email, status: 'pending', price: null});
+    const [offer, setOffer] = useState({company: joboffer.company, companyname: joboffer.companyname, description: joboffer.description, name: joboffer.name, programmer: user.result.email, status: 'pending', percentage:0, price: null});
 
     const handleAddOffer = () => setAddOffer(!addOffer);
 
@@ -28,7 +28,7 @@ const JobOfferCard = ({joboffer}) => {
             </Grid>
             <Grid item xs={7}>
                 <Typography variant="body1" style={{fontFamily:'Nunito'}} alignItems="flex-start">{joboffer.description}</Typography>
-            </Grid>
+            </Grid>        
             <Grid item xs={2} justifyContent="flex-end" onClick={handleAddOffer}>
                 <Button endIcon={<AddIcon />}>Add Offer</Button>
             </Grid>

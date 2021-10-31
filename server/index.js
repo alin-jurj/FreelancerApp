@@ -5,6 +5,7 @@ import dotenv from 'dotenv';
 
 import userRouter from './routes/user.js';
 import portofolioRouter from './routes/portofolio.js';
+import CreditCardRouter from './routes/CreditCard.js'
 import jobofferRouter from './routes/joboffer.js';
 import complaintRouter from './routes/complaint.js';
 import reviewRouter from './routes/review.js';
@@ -20,6 +21,7 @@ app.use(cors());
 
 app.use('/user', userRouter);
 app.use('/portofolio', portofolioRouter);
+app.use('/CreditCard',CreditCardRouter)
 app.use('/joboffer', jobofferRouter);
 app.use('/complaint', complaintRouter);
 app.use('/review', reviewRouter);
