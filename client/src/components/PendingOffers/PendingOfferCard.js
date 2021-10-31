@@ -1,26 +1,26 @@
 import React from 'react';
-import { Box, Typography, Paper, Divider } from '@material-ui/core';
+import { Box, Typography, Paper, Divider,Grid } from '@material-ui/core';
+
+
 
 const PendingOfferCard = ({offer}) => {
-    return (
-            <Box sx={{display: 'flex', alignItems: 'center', width: 'fit-content', bgcolor: 'background.paper', color: 'black',padding: '10px', borderRadius: '5px',}}>
-               
-                    <Typography variant="h6">{offer.companyname}</Typography>
-                
-               
-                    <Divider orientation="vertical" flexItem style={{marginLeft: '10px', marginRight: '10px'}} />
-               
-                
-                    <Typography variant="body2">{offer.name}</Typography>
-                
-                
-                    <Divider orientation="vertical" flexItem style={{marginLeft: '10px', marginRight: '10px'}}/>
-                    <Typography variant="body2">{offer.description}</Typography>
-                
-                    <Divider orientation="vertical" flexItem style={{marginLeft: '10px', marginRight: '10px'}}/>
-                
-                    <Typography variant="body2">My asking price: {offer.price}€</Typography>
-            </Box>    
+    return (  
+        <Paper elevation={6} style={{paddingTop:'20px', paddingBottom:'20px'}}>
+        <Grid container rowSpacing={3} justifyContent="space-between" style={{paddingLeft:'15px'}}>
+            <Grid item xs={3} >
+                <Typography variant="h6" style={{fontFamily:'Nunito'}}>{offer.name}</Typography>
+            </Grid>
+            <Grid item xs={7}>
+                <Typography variant="body1" style={{fontFamily:'Nunito'}} alignItems="flex-start">{offer.description}</Typography>
+            </Grid>
+            <Grid item xs={2} justifyContent="flex-end" >
+                <Typography variant="h6" style={{fontFamily:'Nunito'}}> {offer.price}</Typography>
+            </Grid>
+        </Grid>
+        <Grid item xs={10}>
+            &nbsp;
+        </Grid>
+      </Paper>
     );
 }
 

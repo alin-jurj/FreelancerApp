@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Grid, Divider, CircularProgress } from '@material-ui/core';
 import { useSelector } from 'react-redux';
 import GlobalStyle from '../LandingPage/GlobalStyle';
+import axios from 'axios';
 import bg from '../../img/bg.svg';
 import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
@@ -12,15 +13,23 @@ import Topbar from '../MyProfile/Topbar';
 import Menu from '../MainPage/Menu';
 const AssignTasks = () => {
     const [menuOpen,setMenuOpen] = useState(false);
-    const dispatch = useDispatch();
-
-    useEffect(() => {
-        dispatch(getJoboffers());
-    }, [dispatch]);
 
     const [user,setUser] =useState(JSON.parse(localStorage.getItem('profile')));
+    const [joboffers, setJobOffers] = useState(null);
+    useEffect(() => {
+        axios(`http://localhost:5000/joboffer/`)
+        .then(response =>{
+            setJobOffers(response.data);
+        })
+        .catch(error => {
+            console.log(error);
+        })
+    }, []);
+
+    if (!joboffers) return null;
+
+    
   
-    const joboffers = useSelector((state) => state.joboffers);
     let joboffersByCompany = joboffers.filter(function (e) {
         return (e.company == user.result.email && e.status === 'pending');
     });

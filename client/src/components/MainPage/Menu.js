@@ -78,7 +78,7 @@ export default function Menu({ menuOpen, setMenuOpen }) {
             <Button variant="text" color="primary" fullWidth onClick={goToPending}>Pending Offers</Button>
             <Button variant="text" color="primary" fullWidth onClick={goToAccepted}>Accepted Offers</Button>
             <Button variant="text" color="primary" fullWidth onClick={goToComplaint}>Make a complaint</Button>
-            <Button variant="text" color="primary" fullWidth onClick={goToPayment}>Add a credit card/photo</Button>
+            <Button variant="text" color="primary" fullWidth onClick={goToPayment}>Add a credit card</Button>
             </>)
           }
           {

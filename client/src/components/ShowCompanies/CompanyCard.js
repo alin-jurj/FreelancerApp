@@ -14,11 +14,19 @@ const CompanyCard = ({company}) => {
     const dispatch = useDispatch();
 
     const handleClick = () => {
-        history.push(`/company/${company._id}`);
+        if (user.result.type === 'company'){
+            console.log(user.result.type);
+            history.push(`/MyProfile/${company._id}`);
+            
+        }else{
+            console.log(user.result.type);
+            history.push(`/company/${company._id}`);
+        }
     }
 
     return (
         <>
+        
         <GlobalStyle />
         <Card>
             <CardMedia component="img" height="200" src={company.photo} />
@@ -26,13 +34,7 @@ const CompanyCard = ({company}) => {
             <Grid container justifyContent="flex-start">
                 <Grid item xs={6}>
                     <CardContent>
-                        {
-                            company.type === 'company' ? (
-                                <Typography className={classes.hover} variant="h6" style={{fontFamily:'Nunito'}} onClick={handleClick}>{company.name}</Typography>
-                            ) : (
-                                <Typography className={classes.hover} variant="h6" style={{fontFamily:'Nunito'}} >{company.name}</Typography>
-                            )
-                        }
+                        <Typography className={classes.hover} variant="h6" style={{fontFamily:'Nunito'}} onClick={handleClick}>{company.name}</Typography>
                     </CardContent>
                 </Grid>
                 <Grid item xs={6}>
@@ -49,7 +51,8 @@ const CompanyCard = ({company}) => {
                     }
                 </Grid>
             </Grid>
-        </Card>
+        </Card> 
+     
         </>
     );
 }

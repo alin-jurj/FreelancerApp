@@ -11,7 +11,7 @@ const AssignJobCard = ({joboffer}) => {
     const history= useHistory();
     const [newstatus,setStatus]= useState({company: joboffer.company,
         companyname: joboffer.companyname,
-        companydescription: joboffer.companydescription,
+        companydescription: joboffer.description,
         name: joboffer.name,
         programmer: joboffer.programmer,
         status: joboffer.status,
@@ -20,8 +20,8 @@ const AssignJobCard = ({joboffer}) => {
     });
   const handleOffer = (decision) => {
         setStatus({...newstatus, status: decision});
-        dispatch(updateJobOffer(joboffer._id,newstatus))
-        
+       
+       
   }
     return (
         <Paper elevation={6} style={{paddingTop:'20px', paddingBottom:'20px'}}>

@@ -15,7 +15,7 @@ const CarouselItemCompany = ({name, image,value, item}) => {
     const history= useHistory();
     const [newstatus,setStatus]= useState({company: item.company,
         companyname: item.companyname,
-        companydescription: item.companydescription,
+        companydescription: item.description,
         name: item.name,
         programmer: item.programmer,
         status: item.status,

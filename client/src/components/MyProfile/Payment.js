@@ -30,6 +30,7 @@ export const Payment = () => {
                     <Typography variant="h4" style={{paddingTop: '40px', paddingBottom:'40px', paddingLeft: '30px', color:"#290a42", fontFamily: 'Nunito'}} >Add a credit card</Typography>
                     <Divider variant="middle" style={{marginTop: '20px', marginBottom:'20px'}}/>
                     <AddPayment/>
+                    <Divider variant="middle" style={{marginTop: '40px', marginBottom:'20px'}}/>
                     <Cards/>
                 </Grid>
                 

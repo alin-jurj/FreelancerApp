@@ -15,6 +15,7 @@ const Freelancers = () => {
                 <Divider variant="middle" style={{marginBottom: '50px'}}/>
             </Grid>
             {freelancers.map( (freelancer) => {
+                console.log(freelancers);
                 return (
                     <Grid item>
                         <CompanyCard company={freelancer} />

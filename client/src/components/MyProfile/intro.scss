@@ -12,6 +12,10 @@
   .left {
     flex: 0.5;
     overflow: hidden;
+    .resize {
+      width: 300px;
+      height: auto;
+  }
 
     .imgContainer {
       width: 700px;
