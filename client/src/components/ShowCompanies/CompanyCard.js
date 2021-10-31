@@ -15,11 +15,9 @@ const CompanyCard = ({company}) => {
 
     const handleClick = () => {
         if (user.result.type === 'company'){
-            console.log(user.result.type);
-            history.push(`/MyProfile/${company._id}`);
-            
+            history.push(`/freelancer/${company._id}`);
         }else{
-            console.log(user.result.type);
+
             history.push(`/company/${company._id}`);
         }
     }

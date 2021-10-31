@@ -39,7 +39,7 @@ export default function MyPortofolio() {
                     <AddToPortofolio />
                     <Divider variant="middle" style={{marginTop: '20px', marginBottom:'20px'}}/>
                     <Typography variant="h5" style={{paddingTop: '40px', paddingBottom:'40px', paddingLeft: '30px', color:"#290a42", fontFamily: 'Nunito'}} >My Projects</Typography>
-                    <Projects />
+                    <Projects user={user.result}/>
                 </Grid>
                 
             </Grid>
