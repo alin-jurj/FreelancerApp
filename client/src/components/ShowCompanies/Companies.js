@@ -4,9 +4,12 @@ import { useSelector } from 'react-redux';
 import CompanyCard from './CompanyCard';
 
 const Companies = () => {
-    const companies = useSelector((state) => state.users);
-
-    
+    const users = useSelector((state) => state.users);
+    {console.log(users)}
+    let companies= users.filter(function (e) {
+        return (e.type == "company");
+    });
+     {console.log(companies)}
     return (
         !companies.length ? <CircularProgress /> :
         <div>

@@ -6,7 +6,7 @@ import SearchIcon from "@material-ui/icons/Search";
 import CloseIcon from "@material-ui/icons/Close";
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { getFreelancers } from '../../actions/user';
+import { getFreelancers, getUsers } from '../../actions/user';
 import { getCompanies } from '../../actions/user';
 import Close from '@material-ui/icons/Close';
 
@@ -20,17 +20,26 @@ export default function Searchbar({placeholder,data,type}){
       if(type=="freelancer")
         dispatch(getCompanies());
         else
-        dispatch(getFreelancers());
+        if(type=="company")
+            dispatch(getFreelancers());    
+        else
+        {   
+          dispatch(getUsers());
+        }
     }, [dispatch]);
     
   
-    const companies = useSelector((state) => state.users);
-    
-    
+    const users = useSelector((state) => state.users);
+    let companies= users.filter(function (e) {
+        return (e.type != "admin");
+    });
+
+
+
     const handleFilter= (event) => {
         const searchWord= event.target.value
         setWordEntered(searchWord);
-
+        
         const newFilter=  companies.filter((value) =>{
             return value.name.toLowerCase().includes(searchWord.toLowerCase());
         })
@@ -69,17 +78,36 @@ export default function Searchbar({placeholder,data,type}){
             {filteredData.slice(0,5).map( (company) => {
                 return (
                     <>
+                    {console.log("Hello")};
                     { (type=="freelancer")?(
                         
                          <a className="dataItem" href={"company/"+company._id} target="_self">
                           <p> {company.name}</p>
                            </a>
                     ):
-                    (
+                     (type=="company") ?
+                    (   <>
+                       
                     <a className="dataItem" href={"freelancer/"+company._id} target="_self">
                     <p> {company.name}</p>
                     </a>
-                    )
+                    </>
+                    ):
+                    (company.type=="company") ?
+                    ( <>
+                    <a className="dataItem" href={"company/"+company._id} target="_self">
+                    <p> {company.name}</p>
+                    </a>
+                    </>
+                    ):
+                    (   <>
+                       
+                        <a className="dataItem" href={"freelancer/"+company._id} target="_self">
+                        <p> {company.name}</p>
+                        </a>
+                        </>
+                        )
+                        
                     }
                  </>
                 )

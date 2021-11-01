@@ -4,8 +4,10 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import CompanyCard from '../ShowCompanies/CompanyCard';
 const Freelancers = () => {
-    const freelancers = useSelector((state) => state.users);
-    
+    const users = useSelector((state) => state.users);
+    let freelancers= users.filter(function (e) {
+        return (e.type == "freelancer");
+    });
     return (
             !freelancers.length ? <CircularProgress /> : 
             <div>
