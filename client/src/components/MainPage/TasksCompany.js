@@ -9,7 +9,7 @@ import CarouselItem from '../LandingPage/CarouselItem';
 import { useSelector } from 'react-redux';
 import CarouselItemCompany from './CarouselItemCompany';
 
-const TasksCompany = () => {
+const TasksCompany = ({}) => {
     const [user,setUser] =useState(JSON.parse(localStorage.getItem('profile')));
     const joboffers = useSelector((state) => state.joboffers);
     let joboffersByCompany = joboffers.filter(function (e) {
@@ -26,23 +26,23 @@ const TasksCompany = () => {
                     joboffersByCompany.map( (item) => {
                         if(item.description.includes('Web'))
                             return (
-                                <CarouselItemCompany name= {item.name} image={webapp} value={item.percentage} item={item}/>
+                                <CarouselItemCompany name= {item.name} programmer={item.programmer} image={webapp} value={item.percentage} item={item}/>
                             )
 
                         else if(item.description.includes("Mobile"))
                             return (
-                                <CarouselItemCompany name={item.name} image={mobapp} value={item.percentage} />
+                                <CarouselItemCompany name={item.name} programmer={item.programmer} image={mobapp} value={item.percentage} />
                             )
 
 
-                        else if(item.description.search("Game"))
+                        else if(item.description.includes("Game"))
                             return (
-                                <CarouselItemCompany name={item.name} image={gamedev} value={item.percentage}/>
+                                <CarouselItemCompany name={item.name} programmer={item.programmer} image={gamedev} value={item.percentage}/>
                             )
 
                         else
                             return (
-                                <CarouselItemCompany name={item.name} image={sec}  value={item.percentage}/>
+                                <CarouselItemCompany name={item.name} programmer={item.programmer} image={sec}  value={item.percentage}/>
                             )
                         // )}
                     })

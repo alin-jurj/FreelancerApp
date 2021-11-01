@@ -11,25 +11,21 @@ import CheckIcon from '@mui/icons-material/Check';
 import { getJoboffers } from '../../actions/joboffers';
 import Topbar from '../MyProfile/Topbar';
 import Menu from '../MainPage/Menu';
+
 const AssignTasks = () => {
     const [menuOpen,setMenuOpen] = useState(false);
-
-    const [user,setUser] =useState(JSON.parse(localStorage.getItem('profile')));
-    const [joboffers, setJobOffers] = useState(null);
+    const[enable, setenable]= useState(true);
+    const user =JSON.parse(localStorage.getItem('profile'));
+    const joboffers = useSelector((state) => state.joboffers);
+    const dispatch = useDispatch();
+   
     useEffect(() => {
-        axios(`http://localhost:5000/joboffer/`)
-        .then(response =>{
-            setJobOffers(response.data);
-        })
-        .catch(error => {
-            console.log(error);
-        })
-    }, []);
-
-    if (!joboffers) return null;
-
+      dispatch(getJoboffers());
+ }, [dispatch]);
     
   
+    if (!joboffers) return  null;
+     
     let joboffersByCompany = joboffers.filter(function (e) {
         return (e.company == user.result.email && e.status === 'pending');
     });

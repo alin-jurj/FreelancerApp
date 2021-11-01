@@ -17,11 +17,11 @@ import { useDispatch } from 'react-redux';
 export default function MainPage() {
     const [menuOpen,setMenuOpen] = useState(false)
     const user = JSON.parse(localStorage.getItem('profile'));
-
     const dispatch = useDispatch();
-   useEffect(() => {
-     dispatch(getJoboffers());
- }, [dispatch]);
+        useEffect(() => {
+          dispatch(getJoboffers());
+     }, [dispatch]);
+    
      if(user.result.type=="freelancer"){
     return(
         
