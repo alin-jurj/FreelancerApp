@@ -22,7 +22,10 @@ export default function Menu({ menuOpen, setMenuOpen }) {
   }
   
   const goToProfile= () => {
+    if(user.result.type=="freelancer")
     history.push('/MyProfile');
+    else
+    history.push('company/'+user.result._id);
   }
 
   const goToPortofolio = () => {
@@ -32,7 +35,9 @@ export default function Menu({ menuOpen, setMenuOpen }) {
   const goToCompanies = () => {
     history.push('/companies');
   }
-
+  const goToOffers = () => {
+    history.push('/offers');
+  }
   const goToPending = () => {
     history.push('/pendingoffers');
   }
@@ -75,6 +80,7 @@ export default function Menu({ menuOpen, setMenuOpen }) {
             <Button variant="text" color="primary" fullWidth onClick={goToCompanies}>Companies</Button>
             <Button variant="text" color="primary" fullWidth onClick={goToPending}>Pending Offers</Button>
             <Button variant="text" color="primary" fullWidth onClick={goToAccepted}>Accepted Offers</Button>
+            <Button variant="text" color="primary" fullWidth onClick={goToOffers}>Offers</Button>
             <Button variant="text" color="primary" fullWidth onClick={goToComplaint}>Make a complaint</Button>
             <Button variant="text" color="primary" fullWidth onClick={goToPayment}>Add a credit card</Button>
             </>)
@@ -88,7 +94,7 @@ export default function Menu({ menuOpen, setMenuOpen }) {
           }
           {
             user.result.type === 'company' && (<>
-
+            <Button variant="text" color="primary" fullWidth onClick={goToProfile}>Your profile</Button>
             <Button variant="text" color="primary" fullWidth onClick={goToFreelancers}>Freelancers</Button>
             <Button variant="text" color="primary" fullWidth onClick={goToAssignTasks}>Assign tasks</Button>
             <Button variant="text" color="primary" fullWidth onClick={goToComplaint}>Make a complaint</Button>

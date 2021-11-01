@@ -30,7 +30,7 @@ export const updateJobOffer = async (req, res) => {
     
     if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No review with id: ${id}`);
 
-    const updatedJobOffer={company,companyname, description, name, programmer, status, percentage, price};
+    const updatedJobOffer={company,companyname, description, name, programmer, status, percentage, price, _id: id};
 
 
     await JobOffer.findByIdAndUpdate(id, updatedJobOffer, { new: true });

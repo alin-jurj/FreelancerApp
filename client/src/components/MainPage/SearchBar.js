@@ -68,9 +68,20 @@ export default function Searchbar({placeholder,data,type}){
             <div className="dataResult">
             {filteredData.slice(0,5).map( (company) => {
                 return (
-                    <a className="dataItem" href={"company/"+company._id} target="_self">
+                    <>
+                    { (type=="freelancer")?(
+                        
+                         <a className="dataItem" href={"company/"+company._id} target="_self">
+                          <p> {company.name}</p>
+                           </a>
+                    ):
+                    (
+                    <a className="dataItem" href={"freelancer/"+company._id} target="_self">
                     <p> {company.name}</p>
                     </a>
+                    )
+                    }
+                 </>
                 )
             })}  
             </div>

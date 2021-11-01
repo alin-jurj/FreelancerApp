@@ -15,6 +15,7 @@ const FreelancersDashboard = () => {
     useEffect(() => {
         dispatch(getFreelancers());
     }, [dispatch]);
+   
 
     return (
             <BodyStyle>

@@ -9,46 +9,19 @@ import { updateJobOffer } from '../../actions/joboffers';
 import { height } from '@mui/system';
 import { getJoboffers } from '../../actions/joboffers';
 import { collapseClasses } from '@mui/material';
-const CarouselItemCompany = ({name, image,value, item}) => {
-
-    const dispatch = useDispatch();
-    const history= useHistory();
-    const [newstatus,setStatus]= useState({company: item.company,
-        companyname: item.companyname,
-        companydescription: item.description,
-        name: item.name,
-        programmer: item.programmer,
-        status: item.status,
-        percentage: item.percentage,
-        price: item.price,
-    });  
-
-    const updateLoading = () => {
-            
-                if(item.percentage<100) {
-                setStatus({...newstatus, percentage: item.percentage + 25});
-                }
-                else{
-                    setStatus({...newstatus, status: 'finished'});
-                }
-            
-                dispatch(updateJobOffer(item._id,newstatus))
-            
-            dispatch(getJoboffers());
-            console.log(item.percentage);
-    }
-
+const CarouselItemCompany = ({name, programmer, image,value, item}) => {
+  
     return (
         <CarouselItemStyled>
             <div className="container">
                 <img className="media" height="400px"  src={image} alt={name} />
                 <div className="overlay">
                     <Typography className="text" variant="h6">{name}</Typography>
+                    <Typography className="text" variant="h6">{programmer}</Typography>
                 </div>
                { value<100? (
                 <div className="bar">
                     <Progress value= {value} max={100} />
-                    <HiPlus style={ {width: '15px'} ,{height:'15px'}, {color:'white'} } onClick={updateLoading}/>
                 </div>  
                ):
                ( <div className="bar" >Finished</div>)   

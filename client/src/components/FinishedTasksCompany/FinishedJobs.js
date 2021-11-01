@@ -15,7 +15,7 @@ const FinishedJobs = ({item}) => {
 
     const [newstatus,setStatus]= useState({company: item.company,
         companyname: item.companyname,
-        companydescription: item.companydescription,
+        description: item.description,
         name: item.name,
         programmer: item.programmer,
         status: item.status,
@@ -26,10 +26,7 @@ const FinishedJobs = ({item}) => {
 
     const handleOffer = () => {
         setStatus({...newstatus, status: 'paid'});
-        dispatch(updateJobOffer(item._id,newstatus))
-        console.log(item.status);
-        console.log(item._id);
-        dispatch(getJoboffers());
+        dispatch(updateJobOffer(item._id,newstatus));
     }
     return (
         <Paper elevation={6} style={{paddingTop:'20px', paddingBottom:'20px'}}>

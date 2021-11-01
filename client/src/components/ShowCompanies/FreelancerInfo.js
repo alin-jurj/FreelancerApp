@@ -11,7 +11,8 @@ import { getUserProjects } from '../../actions/portofolio';
 import { useDispatch } from 'react-redux';
 import Reviews from '../Review/Reviews';
 import Projects from '../MyPortofolio/Projects/Projects';
-
+import CardsFreelancer from './CardsFreelancer'
+import { getUserCreditCards } from '../../actions/CreditCard';
 const FreelancerInfo = () => {
     const [menuOpen,setMenuOpen] = useState(false);
     const [user, setUser] = useState(null);
@@ -21,6 +22,9 @@ const FreelancerInfo = () => {
 
     useEffect(() => {
         dispatch(getUserProjects());
+    }, [dispatch]);
+    useEffect(() => {
+        dispatch(getUserCreditCards());
     }, [dispatch]);
 
     useEffect(() => {
@@ -36,6 +40,7 @@ const FreelancerInfo = () => {
     if(!user) return null;
 
     return (
+        
         <BodyStyle>
             <GlobalStyle />
             <Topbar menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
@@ -57,7 +62,7 @@ const FreelancerInfo = () => {
                     </Grid>
                 </Grid>
                 <Grid item xs={3}>
-                    <img alt={user.name} src={user.photo} style={{borderRadius: '15px'}} />
+                    <img alt={user.name} src={user.photo} style={{borderRadius: '15px', width: '20em'}} />
                 </Grid>
                 <Grid item xs={12}>
                     <Divider variant="middle" style={{marginBottom:'40px'}}/>
@@ -69,11 +74,19 @@ const FreelancerInfo = () => {
                     <Divider variant="middle" style={{marginBottom:'40px', marginTop:'30px'}}/>
                 </Grid>
                 <Grid item xs={12}>
-                    <Typography variant="h4" style={{paddingLeft:'15px', fontFamily:'Nunito', color:'#879ff8'}}>{user.name}'s Portofolio</Typography>
+                    <Typography variant="h4" style={{paddingLeft:'15px', fontFamily:'Nunito', color:'#879ff8',paddingTop:'80px', paddingBottom:'40px'}}>{user.name}'s Portofolio</Typography>
+                    <div style={{paddingLeft:'15px', fontFamily:'Nunito', color:'#879ff8',paddingTop:'80px', paddingBottom:'40px'}}>
                     <Projects user={user}/>
+                    </div>
                 </Grid>
             </Grid>
+            <div className="works" style={{paddingTop:'80px', paddingBottom:'40px'}}>
+            <CardsFreelancer user={user}/>
+            </div>
         </BodyStyle>
+        
+        
+
     )
 }
 
@@ -86,6 +99,13 @@ const BodyStyle = styled.header`
     background-position-y: 100%;
     .header-content{
         padding: 0 10rem;
+    }
+    .works {
+        background-color: crimson;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
     }
 `;
 

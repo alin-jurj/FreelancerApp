@@ -9,20 +9,24 @@ import { updateJobOffer } from '../../actions/joboffers';
 const AssignJobCard = ({joboffer}) => {
     const dispatch = useDispatch();
     const history= useHistory();
-    const [newstatus,setStatus]= useState({company: joboffer.company,
+   
+    const [newjob,setjob]= useState({company: joboffer.company,
         companyname: joboffer.companyname,
-        companydescription: joboffer.description,
+        description: joboffer.description,
         name: joboffer.name,
         programmer: joboffer.programmer,
         status: joboffer.status,
         percentage: 0,
         price: joboffer.price,
     });
-  const handleOffer = (decision) => {
-        setStatus({...newstatus, status: decision});
-       
-       
+  const AcceptOffer = () => {
+        setjob({...newjob, status: 'accepted'});
+        dispatch(updateJobOffer(joboffer._id,newjob));
   }
+  const DeniedOffer = () => {
+    setjob({...newjob, status: 'denied'});
+   dispatch(updateJobOffer(joboffer._id,newjob));
+}
     return (
         <Paper elevation={6} style={{paddingTop:'20px', paddingBottom:'20px'}}>
         <Grid container rowSpacing={3} justifyContent="space-between" style={{paddingLeft:'15px'}}>
@@ -41,8 +45,8 @@ const AssignJobCard = ({joboffer}) => {
                     </Grid>
                     <Grid item xs={2} style={{paddingTop: '10px'}}>
                         <div>
-                            <Button startIcon= {<CheckIcon/>}  onClick={handleOffer("accepted")}/>
-                            <Button startIcon={ <CloseIcon/>} onClick={handleOffer("denied")} />
+                            <Button startIcon= {<CheckIcon/>} onClick={AcceptOffer} />
+                            <Button startIcon={ <CloseIcon/>}  onClick={DeniedOffer}/>
                         </div>
                     </Grid>
 
