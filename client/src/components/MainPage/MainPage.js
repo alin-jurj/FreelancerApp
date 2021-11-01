@@ -37,7 +37,7 @@ export default function MainPage() {
              
         </HeaderStyle>
     )}
-    else
+    else if(user.result.type=="company")
     {
         return(
             <HeaderStyle>
@@ -53,6 +53,22 @@ export default function MainPage() {
         </HeaderStyle>
         
         )}
+        else
+        {
+            return(
+                <HeaderStyle>
+                <GlobalStyle />
+                <div className="app">
+                    <Topbar menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
+                    <SearchBar placeholder="Enter the name of a freelancer..." type={user.result.type}/>
+                    <Menu menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
+                    <Divider variant="middle"/>
+                    {/* <TasksCompany/> */}
+                </div>
+                 
+            </HeaderStyle>
+            
+            )}
         
     
 }

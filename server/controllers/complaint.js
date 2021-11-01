@@ -1,5 +1,5 @@
 import express from 'express';
-
+import mongoose from 'mongoose'
 import Complaint from '../models/complaint.js';
 
 const router = express.Router();
@@ -23,4 +23,13 @@ export const getComplaints = async (req, res) => {
     } catch (error) {
         res.status(404).json(error.message);
     }
+}
+export const deleteComplaints = async (req, res) => {
+    const { id } = req.params;
+
+    if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No Complaint with id: ${id}`);
+
+    await Complaint.findByIdAndRemove(id);
+
+    res.json({ message: "Complaint deleted successfully." });
 }

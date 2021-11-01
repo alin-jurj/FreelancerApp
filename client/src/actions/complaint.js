@@ -1,5 +1,5 @@
 import * as api from '../api/index';
-import { ADD_COMPLAINT, GET_COMPLAINTS } from '../constants/actionTypes';
+import { ADD_COMPLAINT, GET_COMPLAINTS, DELETE_COMPLAINT } from '../constants/actionTypes';
 
 export const getComplaints = () => async (dispatch) => {
     try {
@@ -18,3 +18,13 @@ export const addComplaint = (complaint) => async (dispatch) => {
         console.error(error);
     }
 }
+
+export const deleteComplaint = (id) => async (dispatch) => {
+    try {
+        
+      await api.deleteComplaint(id);
+      dispatch({ type: DELETE_COMPLAINT, payload: id });
+    } catch (error) {
+      console.log(error);
+    }
+  };

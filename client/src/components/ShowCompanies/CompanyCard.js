@@ -6,17 +6,26 @@ import { useHistory } from 'react-router-dom';
 import DeleteIcon from '@material-ui/icons/Delete';
 import { useDispatch } from 'react-redux';
 import { deleteUser } from '../../actions/user';
-
+import { useLocation } from 'react-router';
 const CompanyCard = ({company}) => {
     const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
     const classes = useStyle();
     const history = useHistory();
     const dispatch = useDispatch();
-
+    const location = useLocation();
     const handleClick = () => {
+       
         if (user.result.type === 'company'){
             history.push(`/freelancer/${company._id}`);
-        }else{
+        }
+        if(user.result.type==='admin')
+        {
+            if(location.pathname=="/companies")
+            history.push(`/company/${company._id}`);
+            else if(location.pathname=="/freelancers")
+            history.push(`/freelancer/${company._id}`);
+        }
+        else{
 
             history.push(`/company/${company._id}`);
         }

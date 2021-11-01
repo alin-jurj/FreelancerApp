@@ -34,6 +34,7 @@ export const deleteJobOffer = (id) => API.delete(`/joboffer/${id}`);
 
 export const addComplaint = (complaint) => API.post('/complaint/add', complaint);
 export const getComplaints = () => API.get('/complaint/');
+export const deleteComplaint= (id) =>API.delete(`/complaint/${id}`);
 
 export const addReview = (review) => API.post('/review/add', review);
 export const getReviews = () => API.get('/review/');
