@@ -11,12 +11,12 @@ import { getJoboffers } from '../../actions/joboffers';
 import { useDispatch } from 'react-redux';
 import ShowJobOffers from './ShowJobOffers';
 import Reviews from '../Review/Reviews';
-
+import AddJobs from './AddJobs';
 const CompanyInfo = () => {
     const [menuOpen,setMenuOpen] = useState(false);
     const [company, setCompany] = useState(null);
     const { id } = useParams();
-
+    const user = JSON.parse(localStorage.getItem('profile'));
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -71,6 +71,21 @@ const CompanyInfo = () => {
                 <Grid item xs={12}>
                     <Divider variant="middle" style={{marginBottom:'40px', marginTop:'30px'}}/>
                 </Grid>
+                 {
+                    user.result.type==="company" ?(
+                     <>
+                    <Divider variant="middle" style={{marginTop: '20px', marginBottom:'20px'}}/>
+                     <AddJobs />   
+                     <Divider variant="middle" style={{marginTop: '20px', marginBottom:'20px'}}/>
+                   </>
+                               
+
+                    ):
+                    (
+                       <>
+                       </> 
+                    )
+                }
                 <Grid item xs={12}>
                     <ShowJobOffers name={company.name}  email={company.email}/>
                 </Grid>
