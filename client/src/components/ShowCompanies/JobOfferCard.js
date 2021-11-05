@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import {Grid, Typography, Paper, Button, TextField, InputAdornment} from '@material-ui/core';
+import {Grid, Typography, Paper, Button, TextField, InputAdornment,IconButton} from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 import SendIcon from '@material-ui/icons/Send';
 import EuroIcon from '@material-ui/icons/Euro';
 import { useDispatch } from 'react-redux';
-import { addJobOffer } from '../../actions/joboffers';
+import { addJobOffer, deleteJobOffer } from '../../actions/joboffers';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 
 const JobOfferCard = ({joboffer}) => {
@@ -28,12 +29,24 @@ const JobOfferCard = ({joboffer}) => {
             </Grid>
             <Grid item xs={7}>
                 <Typography variant="body1" style={{fontFamily:'Nunito'}} alignItems="flex-start">{joboffer.description}</Typography>
-            </Grid>        
-            <Grid item xs={2} justifyContent="flex-end" onClick={handleAddOffer}>
+            </Grid>     
+            {  
+                (user.result.type==="company") ? (
+                <Button onClick={() => dispatch(deleteJobOffer(joboffer._id))}>
+                <IconButton>
+                    <DeleteIcon />
+                </IconButton>
+                </Button>
+                ): (user.result.type==="admin") ? (
+                    <>
+                     </>
+                 ) :
+                ( <>
+                <Grid item xs={2} justifyContent="flex-end" onClick={handleAddOffer}>
                 <Button endIcon={<AddIcon />}>Add Offer</Button>
-            </Grid>
-            {
-                addOffer && (
+                </Grid>
+                {
+                    addOffer && (
                     <>
                     <Grid item xs={10}>
                         &nbsp;
@@ -45,8 +58,12 @@ const JobOfferCard = ({joboffer}) => {
                         </div>
                     </Grid>
                     </>
+                    )
+                }
+                </>
                 )
             }
+        
         </Grid>
         </Paper>
     );

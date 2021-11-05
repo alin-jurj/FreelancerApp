@@ -22,6 +22,7 @@ const AssignJobCard = ({joboffer}) => {
   const AcceptOffer = () => {
         setjob({...newjob, status: 'accepted'});
         dispatch(updateJobOffer(joboffer._id,newjob));
+        
   }
   const DeniedOffer = () => {
     setjob({...newjob, status: 'denied'});
