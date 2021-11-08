@@ -1,0 +1,142 @@
+[{
+  "_id": {
+    "$oid": "617474c5ad26f6ac50065a86"
+  },
+  "company": "atos@gmail.com",
+  "description": "Web App using mern stack",
+  "name": "Web App",
+  "programmer": "",
+  "status": "",
+  "price": null,
+  "__v": 0,
+  "companyname": "Atos"
+},{
+  "_id": {
+    "$oid": "61747d7dad26f6ac50065aa0"
+  },
+  "company": "atos@gmail.com",
+  "description": "Rigid barriers between automotive and other sectors dissolve too. The rise of electric vehicles, for example, creates new synergies between automotive and urban infrastructure organizations.",
+  "name": "Digital future of automotive",
+  "programmer": "",
+  "status": "",
+  "price": null,
+  "__v": 0,
+  "companyname": "Atos"
+},{
+  "_id": {
+    "$oid": "617f590db5dfbdb25538b398"
+  },
+  "company": "atos@gmail.com",
+  "companyname": "Atos",
+  "description": "Web App using mern stack",
+  "name": "Web App",
+  "programmer": "mihai123@yahoo.com",
+  "status": "paid",
+  "percentage": 100,
+  "price": 300,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "617fd02d9b254a6817d70853"
+  },
+  "company": "atos@gmail.com",
+  "companyname": "Atos",
+  "description": "Rigid barriers between automotive and other sectors dissolve too. The rise of electric vehicles, for example, creates new synergies between automotive and urban infrastructure organizations.",
+  "name": "Digital future of automotive",
+  "programmer": "mihai123@yahoo.com",
+  "status": "accepted",
+  "percentage": 70,
+  "price": 500,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61813344cbeffb667c93dc2e"
+  },
+  "company": "atos@gmail.com",
+  "companyname": "Atos",
+  "description": "Web App using mern stack",
+  "name": "Web App",
+  "programmer": "mihai123@yahoo.com",
+  "status": "finished",
+  "percentage": 100,
+  "price": 300,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61842c2f437e14731532e2b6"
+  },
+  "company": "continental@gmail.com",
+  "companyname": "Continental",
+  "description": "Poker game",
+  "name": "Game app",
+  "programmer": "",
+  "status": "",
+  "percentage": 0,
+  "price": 0,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61842c5c437e14731532e2c7"
+  },
+  "company": "atos@gmail.com",
+  "companyname": "Atos",
+  "description": "Web App using mern stack",
+  "name": "Web App",
+  "programmer": "mihai123@yahoo.com",
+  "status": "accepted",
+  "percentage": 0,
+  "price": 300,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6185355d7c9b9e8233c01389"
+  },
+  "company": "atos@gmail.com",
+  "companyname": "Atos",
+  "description": "Mobile app",
+  "name": "Mobile app",
+  "programmer": "",
+  "status": "",
+  "percentage": 0,
+  "price": 0,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "618536067c9b9e8233c013a4"
+  },
+  "company": "atos@gmail.com",
+  "companyname": "Atos",
+  "description": "Mobile app",
+  "name": "Mobile app",
+  "programmer": "mihai123@yahoo.com",
+  "status": "accepted",
+  "percentage": 30,
+  "price": 300,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61891e52998786ac44ebb8c0"
+  },
+  "company": "atos@gmail.com",
+  "companyname": "Atos",
+  "description": "Rigid barriers between automotive and other sectors dissolve too. The rise of electric vehicles, for example, creates new synergies between automotive and urban infrastructure organizations.",
+  "name": "Digital future of automotive",
+  "programmer": "mihai123@yahoo.com",
+  "status": "denied",
+  "percentage": 0,
+  "price": 500,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61891ee4998786ac44ebb8e1"
+  },
+  "company": "atos@gmail.com",
+  "companyname": "Atos",
+  "description": "game",
+  "name": "Game App",
+  "programmer": "",
+  "status": "",
+  "percentage": 0,
+  "price": 0,
+  "__v": 0
+}]

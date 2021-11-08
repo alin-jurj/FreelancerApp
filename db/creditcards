@@ -1,0 +1,28 @@
+[{
+  "_id": {
+    "$oid": "617d97bcc1aa6422a3bc5dfd"
+  },
+  "name": "George Georgescu",
+  "bank": "Transilvania",
+  "username": "mihai123@yahoo.com",
+  "IBAN": "123415141231",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "617e44a39d16708e663ccd1e"
+  },
+  "name": "Georgescu Mircea",
+  "bank": "BRD",
+  "username": "mihai123@yahoo.com",
+  "IBAN": "321312414312",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "617e46839d16708e663ccd23"
+  },
+  "name": "Dumitru Cristian",
+  "bank": "Alpha Bank",
+  "username": "mihai123@yahoo.com",
+  "IBAN": "3213141421",
+  "__v": 0
+}]

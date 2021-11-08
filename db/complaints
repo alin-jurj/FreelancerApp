@@ -1,0 +1,17 @@
+[{
+  "_id": {
+    "$oid": "617538c64765c1f53748efc4"
+  },
+  "from": "joe@gmail.com",
+  "against": "atos@gmail.com",
+  "reason": "Nu am fost platit la timp",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6175457e68e2d7121aaa2e08"
+  },
+  "from": "love@gmail.com",
+  "against": "Continental",
+  "reason": "Probleme de intelegere intre mine si companie.",
+  "__v": 0
+}]
